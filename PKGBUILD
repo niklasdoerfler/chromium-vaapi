@@ -22,7 +22,7 @@ depends=('gtk3' 'nss' 'alsa-lib' 'xdg-utils' 'libxss' 'libcups' 'libgcrypt'
          'ttf-liberation' 'systemd' 'dbus' 'libpulse' 'pciutils' 'json-glib'
          'desktop-file-utils' 'hicolor-icon-theme')
 makedepends=('python' 'python2' 'gperf' 'mesa' 'ninja' 'nodejs' 'git' 'libva'
-             'libpipewire02' 'clang' 'lld' 'gn' 'java-runtime-headless'
+             'libpipewire02' 'clang' 'lld' 'gn-m85' 'java-runtime-headless'
              'python2-setuptools')
 optdepends=('pepper-flash: support for Flash content'
             'libpipewire02: WebRTC desktop sharing under Wayland'
@@ -193,7 +193,7 @@ build() {
   CFLAGS+='   -Wno-unknown-warning-option'
   CXXFLAGS+=' -Wno-unknown-warning-option'
 
-  gn gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
+  gn-m85 gen out/Release --args="${_flags[*]}" --script-executable=/usr/bin/python2
   ninja -C out/Release chrome chrome_sandbox chromedriver
 }
 
